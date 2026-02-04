@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh/en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
@@ -74,16 +74,24 @@
         <div class="container">
             <div class="navbar-header header-logo"><a href="/">素心客 | Soulthinker</a></div>
             <div class="menu navbar-right">
+                <!-- 导航项（保留data-key） -->
                 
-                <a class="menu-item" href="/archives">Posts</a>
+                <a class="menu-item" data-nav-key="archives" href="/archives">文章归档</a>
                 
-                <a class="menu-item" href="/category">Categories</a>
+                <a class="menu-item" data-nav-key="categories" href="/category">内容分类</a>
                 
-                <a class="menu-item" href="/tag">Tags</a>
+                <a class="menu-item" data-nav-key="tags" href="/tag">标签汇总</a>
                 
-                <a class="menu-item" href="/about">About</a>
+                <a class="menu-item" data-nav-key="about" href="/about">关于我</a>
                 
                 
+                <!-- 语言按钮：直接绑定点击事件（避免onclick作用域问题） -->
+                <div class="language-switch" style="margin-right: 15px; display: inline-block;">
+                    <a id="lang-zh" style="color: #ff7242; font-weight: bold; text-decoration: none; margin: 0 8px; cursor: pointer;">中</a>
+                    <span>|</span>
+                    <a id="lang-en" style="color: #666; text-decoration: none; margin: 0 8px; cursor: pointer;">EN</a>
+                </div>
+
                 <input id="switch_default" type="checkbox" class="switch_default">
                 <label for="switch_default" class="toggleBtn"></label>
             </div>
@@ -103,21 +111,30 @@
                 </div>
             </div>
             <div class="menu" id="mobile-menu">
+                <!-- 移动端导航项 -->
                 
-                <a class="menu-item" href="/archives">Posts</a>
+                <a class="menu-item" data-nav-key="archives" href="/archives">文章归档</a>
                 
-                <a class="menu-item" href="/category">Categories</a>
+                <a class="menu-item" data-nav-key="categories" href="/category">内容分类</a>
                 
-                <a class="menu-item" href="/tag">Tags</a>
+                <a class="menu-item" data-nav-key="tags" href="/tag">标签汇总</a>
                 
-                <a class="menu-item" href="/about">About</a>
+                <a class="menu-item" data-nav-key="about" href="/about">关于我</a>
                 
+                
+                <!-- 移动端语言按钮 -->
+                <div class="language-switch-mobile" style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #eee;">
+                    <a id="lang-zh-mobile" style="color: #ff7242; font-weight: bold; text-decoration: none; margin: 0 8px; cursor: pointer;">中</a>
+                    <span>|</span>
+                    <a id="lang-en-mobile" style="color: #666; text-decoration: none; margin: 0 8px; cursor: pointer;">EN</a>
+                </div>
             </div>
         </div>
     </nav>
 
 </header>
 <script>
+    // 移动端菜单逻辑
     var mobileBtn = function f() {
         var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
         var mobileMenu = document.getElementById("mobile-menu");
@@ -129,13 +146,73 @@
             mobileMenu.classList.add("active")
         }
     }
+
+    // 1. 导航文字映射表（和你的nav键严格对应）
+    const navTextMap = {
+        zh: {
+            archives: '文章归档',
+            categories: '内容分类',
+            tags: '标签汇总',
+            about: '关于我'
+        },
+        en: {
+            archives: 'Archives',
+            categories: 'Categories',
+            tags: 'Tags',
+            about: 'About Me'
+        }
+    };
+
+    // 2. 获取所有DOM元素（提前缓存）
+    const langZh = document.getElementById('lang-zh');
+    const langEn = document.getElementById('lang-en');
+    const langZhMobile = document.getElementById('lang-zh-mobile');
+    const langEnMobile = document.getElementById('lang-en-mobile');
+    const navItems = document.querySelectorAll('.menu-item');
+
+    // 3. 切换语言核心函数
+    function changeLang(targetLang) {
+        // 保存到本地存储
+        localStorage.setItem('blog-lang', targetLang);
+        
+        // 更新导航文字
+        navItems.forEach(item => {
+            const navKey = item.getAttribute('data-nav-key');
+            item.textContent = navTextMap[targetLang][navKey];
+        });
+        
+        // 更新按钮高亮
+        if (targetLang === 'zh') {
+            langZh.style.color = '#ff7242'; langZh.style.fontWeight = 'bold';
+            langEn.style.color = '#666'; langEn.style.fontWeight = 'normal';
+            langZhMobile.style.color = '#ff7242'; langZhMobile.style.fontWeight = 'bold';
+            langEnMobile.style.color = '#666'; langEnMobile.style.fontWeight = 'normal';
+        } else {
+            langEn.style.color = '#ff7242'; langEn.style.fontWeight = 'bold';
+            langZh.style.color = '#666'; langZh.style.fontWeight = 'normal';
+            langEnMobile.style.color = '#ff7242'; langEnMobile.style.fontWeight = 'bold';
+            langZhMobile.style.color = '#666'; langZhMobile.style.fontWeight = 'normal';
+        }
+    }
+
+    // 4. 绑定点击事件（直接绑定，避免onclick作用域问题）
+    langZh.onclick = () => changeLang('zh');
+    langEn.onclick = () => changeLang('en');
+    langZhMobile.onclick = () => changeLang('zh');
+    langEnMobile.onclick = () => changeLang('en');
+
+    // 5. 页面加载时初始化（读取上次选择的语言）
+    window.onload = function() {
+        const savedLang = localStorage.getItem('blog-lang') || 'zh';
+        changeLang(savedLang);
+    };
 </script>
             <div class="main">
                 
     <div class="container profile-container">
     <div class="intro">
         <div class="avatar">
-            <a href="/archives"><img src="/image/avatar.png"></a>
+            <a href="/"><img src="/image/avatar.png"></a>
         </div>
         <div class="nickname">素心客 | Soulthinker</div>
         <div class="description"><p>THERE IS NOTHING WRONG TO BE ORDINARY.</p>
