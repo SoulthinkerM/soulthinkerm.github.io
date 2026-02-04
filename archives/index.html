@@ -163,14 +163,24 @@
         }
     };
 
-    // 2. 获取所有DOM元素（提前缓存）
-    const langZh = document.getElementById('lang-zh');
-    const langEn = document.getElementById('lang-en');
-    const langZhMobile = document.getElementById('lang-zh-mobile');
-    const langEnMobile = document.getElementById('lang-en-mobile');
-    const navItems = document.querySelectorAll('.menu-item');
+    // ========== 新增：动态文案多语言映射（你的指定内容） ==========
+    const dynamicTextMap = {
+        zh: [
+            "哲学学习和实践者 | 正在克服拖延症",
+            "人生拆迁、重建建筑师",
+            "人生游戏化玩家 | 正在享受人生"
+        ],
+        en: [
+            "Philosophy learner & practitioner | Overcoming procrastination",
+            "Life's demolition & reconstruction architect",
+            "Life gamification player | Enjoying life"
+        ]
+    };
 
-    // 3. 切换语言核心函数
+    // 2. 先声明DOM变量（后续在页面加载后赋值）
+    let langZh, langEn, langZhMobile, langEnMobile, navItems, dynamicTextEl;
+
+    // 3. 切换语言核心函数（新增动态文案更新逻辑）
     function changeLang(targetLang) {
         // 保存到本地存储
         localStorage.setItem('blog-lang', targetLang);
@@ -180,6 +190,12 @@
             const navKey = item.getAttribute('data-nav-key');
             item.textContent = navTextMap[targetLang][navKey];
         });
+
+        // ========== 新增：更新主页动态文案 ==========
+        if (dynamicTextEl) {
+            // 用<br>拼接句子实现换行，填充对应语言的文案
+            dynamicTextEl.innerHTML = dynamicTextMap[targetLang].join('<br>');
+        }
         
         // 更新按钮高亮
         if (targetLang === 'zh') {
@@ -195,14 +211,24 @@
         }
     }
 
-    // 4. 绑定点击事件（直接绑定，避免onclick作用域问题）
-    langZh.onclick = () => changeLang('zh');
-    langEn.onclick = () => changeLang('en');
-    langZhMobile.onclick = () => changeLang('zh');
-    langEnMobile.onclick = () => changeLang('en');
-
-    // 5. 页面加载时初始化（读取上次选择的语言）
+    // 4. 页面加载完成后初始化（关键：确保DOM元素已加载）
     window.onload = function() {
+        // 获取所有DOM元素（包括新增的动态文案容器）
+        langZh = document.getElementById('lang-zh');
+        langEn = document.getElementById('lang-en');
+        langZhMobile = document.getElementById('lang-zh-mobile');
+        langEnMobile = document.getElementById('lang-en-mobile');
+        navItems = document.querySelectorAll('.menu-item');
+        // ========== 新增：获取动态文案容器 ==========
+        dynamicTextEl = document.getElementById('dynamic-profile-text');
+
+        // 绑定点击事件
+        langZh.onclick = () => changeLang('zh');
+        langEn.onclick = () => changeLang('en');
+        langZhMobile.onclick = () => changeLang('zh');
+        langEnMobile.onclick = () => changeLang('en');
+
+        // 初始化语言（默认中文）
         const savedLang = localStorage.getItem('blog-lang') || 'zh';
         changeLang(savedLang);
     };
