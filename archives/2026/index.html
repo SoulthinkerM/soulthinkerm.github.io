@@ -74,18 +74,20 @@
         <div class="container">
             <div class="navbar-header header-logo"><a href="/">素心客 | Soulthinker</a></div>
             <div class="menu navbar-right">
-                <!-- 导航项（保留data-key） -->
+                <!-- 导航项（保留data-key，自动读取新nav配置） -->
                 
-                <a class="menu-item" data-nav-key="archives" href="/archives">文章归档</a>
+                <a class="menu-item" data-nav-key="works" href="/works">works</a>
                 
-                <a class="menu-item" data-nav-key="categories" href="/category">内容分类</a>
+                <a class="menu-item" data-nav-key="research" href="/research">research</a>
                 
-                <a class="menu-item" data-nav-key="tags" href="/tag">标签汇总</a>
+                <a class="menu-item" data-nav-key="essays" href="/essays">essays</a>
                 
-                <a class="menu-item" data-nav-key="about" href="/about">关于我</a>
+                <a class="menu-item" data-nav-key="timeline" href="/timeline">timeline</a>
+                
+                <a class="menu-item" data-nav-key="tags" href="/tags">tags</a>
                 
                 
-                <!-- 语言按钮：直接绑定点击事件（避免onclick作用域问题） -->
+                <!-- 语言按钮：保持不变 -->
                 <div class="language-switch" style="margin-right: 15px; display: inline-block;">
                     <a id="lang-zh" style="color: #ff7242; font-weight: bold; text-decoration: none; margin: 0 8px; cursor: pointer;">中</a>
                     <span>|</span>
@@ -111,18 +113,20 @@
                 </div>
             </div>
             <div class="menu" id="mobile-menu">
-                <!-- 移动端导航项 -->
+                <!-- 移动端导航项：自动读取新nav配置 -->
                 
-                <a class="menu-item" data-nav-key="archives" href="/archives">文章归档</a>
+                <a class="menu-item" data-nav-key="works" href="/works">works</a>
                 
-                <a class="menu-item" data-nav-key="categories" href="/category">内容分类</a>
+                <a class="menu-item" data-nav-key="research" href="/research">research</a>
                 
-                <a class="menu-item" data-nav-key="tags" href="/tag">标签汇总</a>
+                <a class="menu-item" data-nav-key="essays" href="/essays">essays</a>
                 
-                <a class="menu-item" data-nav-key="about" href="/about">关于我</a>
+                <a class="menu-item" data-nav-key="timeline" href="/timeline">timeline</a>
+                
+                <a class="menu-item" data-nav-key="tags" href="/tags">tags</a>
                 
                 
-                <!-- 移动端语言按钮 -->
+                <!-- 移动端语言按钮：保持不变 -->
                 <div class="language-switch-mobile" style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #eee;">
                     <a id="lang-zh-mobile" style="color: #ff7242; font-weight: bold; text-decoration: none; margin: 0 8px; cursor: pointer;">中</a>
                     <span>|</span>
@@ -134,7 +138,7 @@
 
 </header>
 <script>
-    // 移动端菜单逻辑
+    // 移动端菜单逻辑：保持不变
     var mobileBtn = function f() {
         var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
         var mobileMenu = document.getElementById("mobile-menu");
@@ -147,23 +151,25 @@
         }
     }
 
-    // 1. 导航文字映射表（和你的nav键严格对应）
+    // 1. 导航文字映射表【核心修改：替换为新导航项的中英文】
     const navTextMap = {
         zh: {
-            archives: '文章归档',
-            categories: '内容分类',
-            tags: '标签汇总',
-            about: '关于我'
+            works: '阶段性成品',
+            research: '研究日志',
+            essays: '随笔',
+            timeline: '内容时间线',
+            tags: '标签分类'
         },
         en: {
-            archives: 'Archives',
-            categories: 'Categories',
-            tags: 'Tags',
-            about: 'About Me'
+            works: 'Phase Works',
+            research: 'Research Logs',
+            essays: 'Essays',
+            timeline: 'Content Timeline',
+            tags: 'Tag Categories'
         }
     };
 
-    // ========== 新增：动态文案多语言映射（你的指定内容） ==========
+    // 动态文案映射表：保持不变（你之前的个人简介文案）
     const dynamicTextMap = {
         zh: [
             "哲学学习和实践者 | 正在克服拖延症",
@@ -177,27 +183,25 @@
         ]
     };
 
-    // 2. 先声明DOM变量（后续在页面加载后赋值）
+    // 2. 声明DOM变量：保持不变
     let langZh, langEn, langZhMobile, langEnMobile, navItems, dynamicTextEl;
 
-    // 3. 切换语言核心函数（新增动态文案更新逻辑）
+    // 3. 切换语言核心函数：逻辑不变，映射表已更新
     function changeLang(targetLang) {
-        // 保存到本地存储
         localStorage.setItem('blog-lang', targetLang);
         
-        // 更新导航文字
+        // 自动匹配新导航项的中英文
         navItems.forEach(item => {
             const navKey = item.getAttribute('data-nav-key');
             item.textContent = navTextMap[targetLang][navKey];
         });
 
-        // ========== 新增：更新主页动态文案 ==========
+        // 更新动态文案：保持不变
         if (dynamicTextEl) {
-            // 用<br>拼接句子实现换行，填充对应语言的文案
             dynamicTextEl.innerHTML = dynamicTextMap[targetLang].join('<br>');
         }
         
-        // 更新按钮高亮
+        // 按钮高亮：保持不变
         if (targetLang === 'zh') {
             langZh.style.color = '#ff7242'; langZh.style.fontWeight = 'bold';
             langEn.style.color = '#666'; langEn.style.fontWeight = 'normal';
@@ -211,24 +215,20 @@
         }
     }
 
-    // 4. 页面加载完成后初始化（关键：确保DOM元素已加载）
+    // 4. 页面加载初始化：保持不变
     window.onload = function() {
-        // 获取所有DOM元素（包括新增的动态文案容器）
         langZh = document.getElementById('lang-zh');
         langEn = document.getElementById('lang-en');
         langZhMobile = document.getElementById('lang-zh-mobile');
         langEnMobile = document.getElementById('lang-en-mobile');
         navItems = document.querySelectorAll('.menu-item');
-        // ========== 新增：获取动态文案容器 ==========
         dynamicTextEl = document.getElementById('dynamic-profile-text');
 
-        // 绑定点击事件
         langZh.onclick = () => changeLang('zh');
         langEn.onclick = () => changeLang('en');
         langZhMobile.onclick = () => changeLang('zh');
         langEnMobile.onclick = () => changeLang('en');
 
-        // 初始化语言（默认中文）
         const savedLang = localStorage.getItem('blog-lang') || 'zh';
         changeLang(savedLang);
     };
