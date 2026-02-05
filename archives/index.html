@@ -81,15 +81,16 @@
                     <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
                     
                     <div class="menu-item has-subnav ">
-                        <a href="/works" class="main-nav-link" data-nav-key="works">works</a>
+                        <!-- 核心修改1：去掉href、添加no-link类、onclick阻止跳转 -->
+                        <a class="main-nav-link no-link" data-nav-key="works" onclick="return false;">阶段性成品</a>
                         <!-- 子菜单容器 -->
                         <div class="subnav-menu">
                             
                                 
-                                <a class="subnav-item " data-nav-key="life_gamification" href="/works/life-gamification">life_gamification</a>
+                                <a class="subnav-item " data-nav-key="life_gamification" href="/categories/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96/">人生游戏化</a>
                             
                                 
-                                <a class="subnav-item " data-nav-key="life_demolition" href="/works/life-demolition">life_demolition</a>
+                                <a class="subnav-item " data-nav-key="life_demolition" href="/categories/%E4%BA%BA%E7%94%9F%E6%8B%86%E8%BF%81/">人生拆迁</a>
                             
                         </div>
                     </div>
@@ -100,7 +101,7 @@
                     <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
                     
                     <!-- 普通导航项：data-nav-key绑定到a标签 -->
-                    <a class="menu-item " data-nav-key="research" href="/research">research</a>
+                    <a class="menu-item " data-nav-key="research" href="/categories/%E7%A0%94%E7%A9%B6%E6%97%A5%E5%BF%97/">研究日志</a>
                     
                 
                     
@@ -108,7 +109,7 @@
                     <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
                     
                     <!-- 普通导航项：data-nav-key绑定到a标签 -->
-                    <a class="menu-item " data-nav-key="essays" href="/essays">essays</a>
+                    <a class="menu-item " data-nav-key="essays" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
                     
                 
                     
@@ -116,7 +117,7 @@
                     <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
                     
                     <!-- 普通导航项：data-nav-key绑定到a标签 -->
-                    <a class="menu-item " data-nav-key="timeline" href="/timeline">timeline</a>
+                    <a class="menu-item " data-nav-key="timeline" href="/timeline/">内容时间线</a>
                     
                 
                     
@@ -124,7 +125,7 @@
                     <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
                     
                     <!-- 普通导航项：data-nav-key绑定到a标签 -->
-                    <a class="menu-item " data-nav-key="tags" href="/tags">tags</a>
+                    <a class="menu-item " data-nav-key="tags" href="/tags/">标签分类</a>
                     
                 
                 
@@ -170,7 +171,8 @@
                 <div class="mobile-menu-item has-subnav ">
                     <!-- 主菜单点击展开/折叠子菜单 -->
                     <div class="main-nav-title" onclick="toggleSubnav(this)" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; cursor: pointer;">
-                        <a href="/works" class="main-nav-link" data-nav-key="works">works</a>
+                        <!-- 核心修改2：移动端去掉href、添加no-link类、onclick阻止跳转 -->
+                        <a class="main-nav-link no-link" data-nav-key="works" onclick="return false;">阶段性成品</a>
                         <!-- 展开/折叠箭头图标 -->
                         <svg class="subnav-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
@@ -180,10 +182,10 @@
                     <div class="mobile-subnav-menu" style="display: none; padding-left: 15px; margin-top: 5px;">
                         
                             
-                            <a class="mobile-subnav-item " data-nav-key="life_gamification" href="/works/life-gamification">life_gamification</a>
+                            <a class="mobile-subnav-item " data-nav-key="life_gamification" href="/categories/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96/">人生游戏化</a>
                         
                             
-                            <a class="mobile-subnav-item " data-nav-key="life_demolition" href="/works/life-demolition">life_demolition</a>
+                            <a class="mobile-subnav-item " data-nav-key="life_demolition" href="/categories/%E4%BA%BA%E7%94%9F%E6%8B%86%E8%BF%81/">人生拆迁</a>
                         
                     </div>
                 </div>
@@ -194,7 +196,7 @@
                 <!-- 带子菜单的主项：可折叠 -->
                 
                 <!-- 普通主菜单 -->
-                <a class="mobile-menu-item " data-nav-key="research" href="/research">research</a>
+                <a class="mobile-menu-item " data-nav-key="research" href="/categories/%E7%A0%94%E7%A9%B6%E6%97%A5%E5%BF%97/">研究日志</a>
                 
             
                 
@@ -202,7 +204,7 @@
                 <!-- 带子菜单的主项：可折叠 -->
                 
                 <!-- 普通主菜单 -->
-                <a class="mobile-menu-item " data-nav-key="essays" href="/essays">essays</a>
+                <a class="mobile-menu-item " data-nav-key="essays" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
                 
             
                 
@@ -210,7 +212,7 @@
                 <!-- 带子菜单的主项：可折叠 -->
                 
                 <!-- 普通主菜单 -->
-                <a class="mobile-menu-item " data-nav-key="timeline" href="/timeline">timeline</a>
+                <a class="mobile-menu-item " data-nav-key="timeline" href="/timeline/">内容时间线</a>
                 
             
                 
@@ -218,7 +220,7 @@
                 <!-- 带子菜单的主项：可折叠 -->
                 
                 <!-- 普通主菜单 -->
-                <a class="mobile-menu-item " data-nav-key="tags" href="/tags">tags</a>
+                <a class="mobile-menu-item " data-nav-key="tags" href="/tags/">标签分类</a>
                 
             
         </div>
@@ -243,6 +245,13 @@
             text-decoration: none !important;
             padding: 8px 4px;
             display: inline-block;
+        }
+
+        /* 核心修改3：新增不可点击导航项样式 */
+        .main-nav-link.no-link {
+            cursor: default !important; /* 鼠标指针改为默认（非手型） */
+            pointer-events: none !important; /* 禁用所有点击事件 */
+            text-decoration: none !important; /* 确保无下划线 */
         }
 
         /* PC端主菜单常亮 */
@@ -484,6 +493,60 @@
 
         
             <h3>2026</h3>
+        
+
+        <article class="archive-item">
+            <a class="archive-item-link" href="/2026/02/10/en/hello-english/">My First English Post</a>
+            <span class="archive-item-date">2026/02/10</span>
+        </article>
+    
+        
+
+        
+
+        <article class="archive-item">
+            <a class="archive-item-link" href="/2026/02/10/zh/hello-chinese/">我的第一篇中文文章</a>
+            <span class="archive-item-date">2026/02/10</span>
+        </article>
+    
+        
+
+        
+
+        <article class="archive-item">
+            <a class="archive-item-link" href="/2026/02/07/en/Life-Gamification-Core-Idea/">Life Gamification - Core Idea</a>
+            <span class="archive-item-date">2026/02/07</span>
+        </article>
+    
+        
+
+        
+
+        <article class="archive-item">
+            <a class="archive-item-link" href="/2026/02/07/zh/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96-%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF/">人生游戏化-核心思路</a>
+            <span class="archive-item-date">2026/02/07</span>
+        </article>
+    
+        
+
+        
+
+        <article class="archive-item">
+            <a class="archive-item-link" href="/2026/02/06/%E7%A0%94%E7%A9%B6%E6%97%A5%E5%BF%97-%E6%B5%8B%E8%AF%95/">研究日志-测试</a>
+            <span class="archive-item-date">2026/02/06</span>
+        </article>
+    
+        
+
+        
+
+        <article class="archive-item">
+            <a class="archive-item-link" href="/2026/02/06/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96-%E6%B5%8B%E8%AF%95/">人生游戏化-测试</a>
+            <span class="archive-item-date">2026/02/06</span>
+        </article>
+    
+        
+
         
 
         <article class="archive-item">

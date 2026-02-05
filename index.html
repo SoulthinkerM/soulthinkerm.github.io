@@ -81,15 +81,16 @@
                     <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
                     
                     <div class="menu-item has-subnav ">
-                        <a href="/works" class="main-nav-link" data-nav-key="works">works</a>
+                        <!-- 核心修改1：去掉href、添加no-link类、onclick阻止跳转 -->
+                        <a class="main-nav-link no-link" data-nav-key="works" onclick="return false;">阶段性成品</a>
                         <!-- 子菜单容器 -->
                         <div class="subnav-menu">
                             
                                 
-                                <a class="subnav-item " data-nav-key="life_gamification" href="/works/life-gamification">life_gamification</a>
+                                <a class="subnav-item " data-nav-key="life_gamification" href="/categories/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96/">人生游戏化</a>
                             
                                 
-                                <a class="subnav-item " data-nav-key="life_demolition" href="/works/life-demolition">life_demolition</a>
+                                <a class="subnav-item " data-nav-key="life_demolition" href="/categories/%E4%BA%BA%E7%94%9F%E6%8B%86%E8%BF%81/">人生拆迁</a>
                             
                         </div>
                     </div>
@@ -100,7 +101,7 @@
                     <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
                     
                     <!-- 普通导航项：data-nav-key绑定到a标签 -->
-                    <a class="menu-item " data-nav-key="research" href="/research">research</a>
+                    <a class="menu-item " data-nav-key="research" href="/categories/%E7%A0%94%E7%A9%B6%E6%97%A5%E5%BF%97/">研究日志</a>
                     
                 
                     
@@ -108,7 +109,7 @@
                     <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
                     
                     <!-- 普通导航项：data-nav-key绑定到a标签 -->
-                    <a class="menu-item " data-nav-key="essays" href="/essays">essays</a>
+                    <a class="menu-item " data-nav-key="essays" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
                     
                 
                     
@@ -116,7 +117,7 @@
                     <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
                     
                     <!-- 普通导航项：data-nav-key绑定到a标签 -->
-                    <a class="menu-item " data-nav-key="timeline" href="/timeline">timeline</a>
+                    <a class="menu-item " data-nav-key="timeline" href="/timeline/">内容时间线</a>
                     
                 
                     
@@ -124,7 +125,7 @@
                     <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
                     
                     <!-- 普通导航项：data-nav-key绑定到a标签 -->
-                    <a class="menu-item " data-nav-key="tags" href="/tags">tags</a>
+                    <a class="menu-item " data-nav-key="tags" href="/tags/">标签分类</a>
                     
                 
                 
@@ -170,7 +171,8 @@
                 <div class="mobile-menu-item has-subnav ">
                     <!-- 主菜单点击展开/折叠子菜单 -->
                     <div class="main-nav-title" onclick="toggleSubnav(this)" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; cursor: pointer;">
-                        <a href="/works" class="main-nav-link" data-nav-key="works">works</a>
+                        <!-- 核心修改2：移动端去掉href、添加no-link类、onclick阻止跳转 -->
+                        <a class="main-nav-link no-link" data-nav-key="works" onclick="return false;">阶段性成品</a>
                         <!-- 展开/折叠箭头图标 -->
                         <svg class="subnav-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
@@ -180,10 +182,10 @@
                     <div class="mobile-subnav-menu" style="display: none; padding-left: 15px; margin-top: 5px;">
                         
                             
-                            <a class="mobile-subnav-item " data-nav-key="life_gamification" href="/works/life-gamification">life_gamification</a>
+                            <a class="mobile-subnav-item " data-nav-key="life_gamification" href="/categories/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96/">人生游戏化</a>
                         
                             
-                            <a class="mobile-subnav-item " data-nav-key="life_demolition" href="/works/life-demolition">life_demolition</a>
+                            <a class="mobile-subnav-item " data-nav-key="life_demolition" href="/categories/%E4%BA%BA%E7%94%9F%E6%8B%86%E8%BF%81/">人生拆迁</a>
                         
                     </div>
                 </div>
@@ -194,7 +196,7 @@
                 <!-- 带子菜单的主项：可折叠 -->
                 
                 <!-- 普通主菜单 -->
-                <a class="mobile-menu-item " data-nav-key="research" href="/research">research</a>
+                <a class="mobile-menu-item " data-nav-key="research" href="/categories/%E7%A0%94%E7%A9%B6%E6%97%A5%E5%BF%97/">研究日志</a>
                 
             
                 
@@ -202,7 +204,7 @@
                 <!-- 带子菜单的主项：可折叠 -->
                 
                 <!-- 普通主菜单 -->
-                <a class="mobile-menu-item " data-nav-key="essays" href="/essays">essays</a>
+                <a class="mobile-menu-item " data-nav-key="essays" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
                 
             
                 
@@ -210,7 +212,7 @@
                 <!-- 带子菜单的主项：可折叠 -->
                 
                 <!-- 普通主菜单 -->
-                <a class="mobile-menu-item " data-nav-key="timeline" href="/timeline">timeline</a>
+                <a class="mobile-menu-item " data-nav-key="timeline" href="/timeline/">内容时间线</a>
                 
             
                 
@@ -218,7 +220,7 @@
                 <!-- 带子菜单的主项：可折叠 -->
                 
                 <!-- 普通主菜单 -->
-                <a class="mobile-menu-item " data-nav-key="tags" href="/tags">tags</a>
+                <a class="mobile-menu-item " data-nav-key="tags" href="/tags/">标签分类</a>
                 
             
         </div>
@@ -243,6 +245,13 @@
             text-decoration: none !important;
             padding: 8px 4px;
             display: inline-block;
+        }
+
+        /* 核心修改3：新增不可点击导航项样式 */
+        .main-nav-link.no-link {
+            cursor: default !important; /* 鼠标指针改为默认（非手型） */
+            pointer-events: none !important; /* 禁用所有点击事件 */
+            text-decoration: none !important; /* 确保无下划线 */
         }
 
         /* PC端主菜单常亮 */
@@ -540,7 +549,226 @@
             
         </div>
     </div>
-</div>
+</div>  <!-- 保留原有个人简介 -->
+    
+    <!-- 双语言文章列表：服务端只渲染结构，前端JS动态筛选 -->
+    <div class="post-list-container" style="margin-top: 40px; padding: 0 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <!-- 文章列表标题（前端JS动态修改） -->
+        <h2 id="post-list-title" style="color: #333; font-size: 18px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+            最新文章
+        </h2>
+        
+        <!-- 所有文章：先隐藏，前端筛选后显示对应语言的 -->
+        <div id="all-posts" style="display: none;">
+            
+                <article class="post-item" data-lang="en" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                    <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+                        <a href="/2026/02/10/en/hello-english/" style="color: #ff7242; text-decoration: none;">
+                            My First English Post
+                        </a>
+                    </h3>
+                    <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+                        
+                        2026-02-10 | 未分类
+                    </div>
+                    <div class="post-excerpt" style="color: #666; font-size: 14px; line-height: 1.6;">
+                        
+                        This is the English post shown only in English interface～Bold Test: The core of life gamification is positive feedback.
+...
+                    </div>
+                    <a class="read-more" href="/2026/02/10/en/hello-english/" style="color: #ff7242; font-size: 14px; text-decoration: none; margin-top: 10px; display: inline-block;">
+                        阅读全文 →
+                    </a>
+                </article>
+            
+                <article class="post-item" data-lang="zh-CN" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                    <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+                        <a href="/2026/02/10/zh/hello-chinese/" style="color: #ff7242; text-decoration: none;">
+                            我的第一篇中文文章
+                        </a>
+                    </h3>
+                    <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+                        
+                        2026-02-10 | 未分类
+                    </div>
+                    <div class="post-excerpt" style="color: #666; font-size: 14px; line-height: 1.6;">
+                        
+                        这是中文界面显示的中文文章内容～加粗测试：人生游戏化的核心是正向反馈。
+...
+                    </div>
+                    <a class="read-more" href="/2026/02/10/zh/hello-chinese/" style="color: #ff7242; font-size: 14px; text-decoration: none; margin-top: 10px; display: inline-block;">
+                        阅读全文 →
+                    </a>
+                </article>
+            
+                <article class="post-item" data-lang="en" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                    <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+                        <a href="/2026/02/07/en/Life-Gamification-Core-Idea/" style="color: #ff7242; text-decoration: none;">
+                            Life Gamification - Core Idea
+                        </a>
+                    </h3>
+                    <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+                        
+                        2026-02-07 | 未分类
+                    </div>
+                    <div class="post-excerpt" style="color: #666; font-size: 14px; line-height: 1.6;">
+                        
+                        This is the article content only shown in English interface: The core of life gamification is to break down life goals into executable small tasks, an...
+                    </div>
+                    <a class="read-more" href="/2026/02/07/en/Life-Gamification-Core-Idea/" style="color: #ff7242; font-size: 14px; text-decoration: none; margin-top: 10px; display: inline-block;">
+                        阅读全文 →
+                    </a>
+                </article>
+            
+                <article class="post-item" data-lang="zh-CN" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                    <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+                        <a href="/2026/02/07/zh/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96-%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF/" style="color: #ff7242; text-decoration: none;">
+                            人生游戏化-核心思路
+                        </a>
+                    </h3>
+                    <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+                        
+                        2026-02-07 | 未分类
+                    </div>
+                    <div class="post-excerpt" style="color: #666; font-size: 14px; line-height: 1.6;">
+                        
+                        这是中文界面才会显示的文章内容： 人生游戏化的核心是把人生目标拆解成可执行的小任务，用正向反馈驱动自己行动，比如把“读完1本书”拆成“每天读10页”，完成后给自己一个小奖励。
+...
+                    </div>
+                    <a class="read-more" href="/2026/02/07/zh/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96-%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF/" style="color: #ff7242; font-size: 14px; text-decoration: none; margin-top: 10px; display: inline-block;">
+                        阅读全文 →
+                    </a>
+                </article>
+            
+                <article class="post-item" data-lang="zh-CN" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                    <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+                        <a href="/2026/02/06/%E7%A0%94%E7%A9%B6%E6%97%A5%E5%BF%97-%E6%B5%8B%E8%AF%95/" style="color: #ff7242; text-decoration: none;">
+                            研究日志-测试
+                        </a>
+                    </h3>
+                    <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+                        
+                        2026-02-06 | 未分类
+                    </div>
+                    <div class="post-excerpt" style="color: #666; font-size: 14px; line-height: 1.6;">
+                        
+                        暂无摘要
+                    </div>
+                    <a class="read-more" href="/2026/02/06/%E7%A0%94%E7%A9%B6%E6%97%A5%E5%BF%97-%E6%B5%8B%E8%AF%95/" style="color: #ff7242; font-size: 14px; text-decoration: none; margin-top: 10px; display: inline-block;">
+                        阅读全文 →
+                    </a>
+                </article>
+            
+                <article class="post-item" data-lang="zh-CN" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                    <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+                        <a href="/2026/02/06/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96-%E6%B5%8B%E8%AF%95/" style="color: #ff7242; text-decoration: none;">
+                            人生游戏化-测试
+                        </a>
+                    </h3>
+                    <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+                        
+                        2026-02-06 | 未分类
+                    </div>
+                    <div class="post-excerpt" style="color: #666; font-size: 14px; line-height: 1.6;">
+                        
+                        暂无摘要
+                    </div>
+                    <a class="read-more" href="/2026/02/06/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96-%E6%B5%8B%E8%AF%95/" style="color: #ff7242; font-size: 14px; text-decoration: none; margin-top: 10px; display: inline-block;">
+                        阅读全文 →
+                    </a>
+                </article>
+            
+                <article class="post-item" data-lang="zh-CN" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                    <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+                        <a href="/2026/02/05/hello-world/" style="color: #ff7242; text-decoration: none;">
+                            Hello World
+                        </a>
+                    </h3>
+                    <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+                        
+                        2026-02-05 | 未分类
+                    </div>
+                    <div class="post-excerpt" style="color: #666; font-size: 14px; line-height: 1.6;">
+                        
+                        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ...
+                    </div>
+                    <a class="read-more" href="/2026/02/05/hello-world/" style="color: #ff7242; font-size: 14px; text-decoration: none; margin-top: 10px; display: inline-block;">
+                        阅读全文 →
+                    </a>
+                </article>
+            
+        </div>
+        
+        <!-- 筛选后的文章显示容器 -->
+        <div id="filtered-posts"></div>
+        
+        <!-- 无文章提示（前端JS动态修改） -->
+        <div id="no-posts-tip" style="color: #999; text-align: center; padding: 40px 0; display: none;">
+            暂无中文文章，敬请期待～
+        </div>
+    </div>
+
+    <!-- 前端JS：动态筛选对应语言的文章（核心修复） -->
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. 获取当前语言（优先localStorage，默认中文）
+            const currentLang = localStorage.getItem('blog-lang') || 'zh-CN';
+            
+            // 2. 文本映射（多语言文案）
+            const textMap = {
+                zh: {
+                    listTitle: '最新文章',
+                    readMore: '阅读全文 →',
+                    noPosts: '暂无中文文章，敬请期待～',
+                    noCategory: '未分类'
+                },
+                en: {
+                    listTitle: 'Latest Posts',
+                    readMore: 'Read More →',
+                    noPosts: 'No English posts yet, stay tuned～',
+                    noCategory: 'Uncategorized'
+                }
+            };
+
+            // 3. 更新文章列表标题
+            document.getElementById('post-list-title').textContent = textMap[currentLang].listTitle;
+
+            // 4. 获取所有文章并筛选对应语言的
+            const allPosts = document.querySelectorAll('#all-posts .post-item');
+            const filteredPosts = Array.from(allPosts).filter(post => {
+                return post.getAttribute('data-lang') === currentLang;
+            });
+
+            // 5. 渲染筛选后的文章
+            const filteredContainer = document.getElementById('filtered-posts');
+            const noPostsTip = document.getElementById('no-posts-tip');
+            
+            if (filteredPosts.length > 0) {
+                // 有对应语言的文章：渲染到页面
+                filteredPosts.forEach(post => {
+                    // 更新"阅读全文"按钮文字
+                    const readMoreBtn = post.querySelector('.read-more');
+                    readMoreBtn.textContent = textMap[currentLang].readMore;
+                    
+                    // 同步更新分类文字的多语言（如果是默认的"未分类"）
+                    const metaText = post.querySelector('.post-meta').textContent;
+                    if (metaText.includes('未分类')) {
+                        post.querySelector('.post-meta').textContent = metaText.replace('未分类', textMap[currentLang].noCategory);
+                    }
+                    
+                    // 把文章添加到显示容器
+                    filteredContainer.appendChild(post);
+                });
+                noPostsTip.style.display = 'none';
+            } else {
+                // 无对应语言的文章：显示提示
+                filteredContainer.innerHTML = '';
+                noPostsTip.textContent = textMap[currentLang].noPosts;
+                noPostsTip.style.display = 'block';
+            }
+        });
+    </script>
 
             </div>
             <footer id="footer" class="footer">
