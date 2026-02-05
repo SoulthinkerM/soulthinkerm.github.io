@@ -74,17 +74,22 @@
         <div class="container">
             <div class="navbar-header header-logo"><a href="/">素心客 | Soulthinker</a></div>
             <div class="menu navbar-right">
-                <!-- 导航项（保留data-key，自动读取新nav配置） -->
+                <!-- 导航项（active类判断：当前页面常亮核心） -->
                 
-                <a class="menu-item" data-nav-key="works" href="/works">works</a>
                 
-                <a class="menu-item" data-nav-key="research" href="/research">research</a>
+                <a class="menu-item " data-nav-key="works" href="/works">works</a>
                 
-                <a class="menu-item" data-nav-key="essays" href="/essays">essays</a>
                 
-                <a class="menu-item" data-nav-key="timeline" href="/timeline">timeline</a>
+                <a class="menu-item " data-nav-key="research" href="/research">research</a>
                 
-                <a class="menu-item" data-nav-key="tags" href="/tags">tags</a>
+                
+                <a class="menu-item " data-nav-key="essays" href="/essays">essays</a>
+                
+                
+                <a class="menu-item " data-nav-key="timeline" href="/timeline">timeline</a>
+                
+                
+                <a class="menu-item " data-nav-key="tags" href="/tags">tags</a>
                 
                 
                 <!-- 语言按钮：保持不变 -->
@@ -113,17 +118,22 @@
                 </div>
             </div>
             <div class="menu" id="mobile-menu">
-                <!-- 移动端导航项：自动读取新nav配置 -->
+                <!-- 移动端导航项：同步常亮逻辑 -->
                 
-                <a class="menu-item" data-nav-key="works" href="/works">works</a>
                 
-                <a class="menu-item" data-nav-key="research" href="/research">research</a>
+                <a class="menu-item " data-nav-key="works" href="/works">works</a>
                 
-                <a class="menu-item" data-nav-key="essays" href="/essays">essays</a>
                 
-                <a class="menu-item" data-nav-key="timeline" href="/timeline">timeline</a>
+                <a class="menu-item " data-nav-key="research" href="/research">research</a>
                 
-                <a class="menu-item" data-nav-key="tags" href="/tags">tags</a>
+                
+                <a class="menu-item " data-nav-key="essays" href="/essays">essays</a>
+                
+                
+                <a class="menu-item " data-nav-key="timeline" href="/timeline">timeline</a>
+                
+                
+                <a class="menu-item " data-nav-key="tags" href="/tags">tags</a>
                 
                 
                 <!-- 移动端语言按钮：保持不变 -->
@@ -136,6 +146,33 @@
         </div>
     </nav>
 
+    <!-- 导航栏常亮样式：当前页面按钮颜色加深+加粗（无下划线） -->
+    <style>
+        /* PC端导航当前页面常亮 */
+        .navbar .menu .menu-item.active {
+            color: #ff7242 !important; /* 常亮颜色（和语言按钮同色系，可自定义） */
+            font-weight: 600 !important; /* 字体加粗，更醒目 */
+            opacity: 1 !important; /* 确保不透明，完全常亮 */
+        }
+
+        /* 移动端导航当前页面常亮 */
+        .navbar-mobile .menu .menu-item.active {
+            color: #ff7242 !important;
+            font-weight: 600 !important;
+            opacity: 1 !important;
+        }
+
+        /* 导航项默认样式优化（ hover 效果可选，不影响常亮） */
+        .menu-item {
+            transition: all 0.2s ease; /* 平滑过渡 */
+            margin: 0 8px;
+            opacity: 0.8; /* 默认轻微透明，对比更明显 */
+        }
+        .menu-item:hover {
+            color: #ff7242; /* 鼠标悬浮时变色，提升交互 */
+            opacity: 1;
+        }
+    </style>
 </header>
 <script>
     // 移动端菜单逻辑：保持不变
@@ -151,7 +188,7 @@
         }
     }
 
-    // 1. 导航文字映射表【核心修改：替换为新导航项的中英文】
+    // 1. 导航文字映射表
     const navTextMap = {
         zh: {
             works: '阶段性成品',
@@ -169,7 +206,7 @@
         }
     };
 
-    // 动态文案映射表：保持不变（你之前的个人简介文案）
+    // 动态文案映射表
     const dynamicTextMap = {
         zh: [
             "哲学学习和实践者 | 正在克服拖延症",
@@ -183,10 +220,10 @@
         ]
     };
 
-    // 2. 声明DOM变量：保持不变
+    // 2. 声明DOM变量
     let langZh, langEn, langZhMobile, langEnMobile, navItems, dynamicTextEl;
 
-    // 3. 切换语言核心函数：逻辑不变，映射表已更新
+    // 3. 切换语言核心函数
     function changeLang(targetLang) {
         localStorage.setItem('blog-lang', targetLang);
         
@@ -196,12 +233,12 @@
             item.textContent = navTextMap[targetLang][navKey];
         });
 
-        // 更新动态文案：保持不变
+        // 更新动态文案
         if (dynamicTextEl) {
             dynamicTextEl.innerHTML = dynamicTextMap[targetLang].join('<br>');
         }
         
-        // 按钮高亮：保持不变
+        // 按钮高亮
         if (targetLang === 'zh') {
             langZh.style.color = '#ff7242'; langZh.style.fontWeight = 'bold';
             langEn.style.color = '#666'; langEn.style.fontWeight = 'normal';
@@ -215,7 +252,7 @@
         }
     }
 
-    // 4. 页面加载初始化：保持不变
+    // 4. 页面加载初始化
     window.onload = function() {
         langZh = document.getElementById('lang-zh');
         langEn = document.getElementById('lang-en');
