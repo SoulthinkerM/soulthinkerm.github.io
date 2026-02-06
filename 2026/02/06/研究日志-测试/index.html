@@ -178,8 +178,8 @@
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </div>
-                    <!-- 子菜单默认隐藏 -->
-                    <div class="mobile-subnav-menu" style="display: none; padding-left: 15px; margin-top: 5px;">
+                    <!-- 子菜单默认隐藏：用hidden类替代内联style，核心修复 -->
+                    <div class="mobile-subnav-menu hidden">
                         
                             
                             <a class="mobile-subnav-item " data-nav-key="life_gamification" href="/categories/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96/">人生游戏化</a>
@@ -311,11 +311,14 @@
             opacity: 1;
         }
 
-        /* 修复：移动端子菜单样式（折叠逻辑专用） */
+        /* 核心修复：移动端子菜单样式，去掉!important硬隐藏，用class控制 */
         .mobile-subnav-menu {
             padding-left: 15px;
-            display: none !important; /* 强制默认隐藏，覆盖原有样式 */
             margin-top: 5px !important;
+        }
+        /* 新增隐藏类，替代原来的display: none !important */
+        .mobile-subnav-menu.hidden {
+            display: none !important;
         }
         .mobile-subnav-item {
             display: block;
@@ -362,20 +365,20 @@
         }
     }
 
-    // 新增：移动端子菜单折叠/展开函数（核心修复）
+    // 核心修复：移动端子菜单折叠/展开函数，用class替代直接修改style（解决!important覆盖问题）
     function toggleSubnav(el) {
         // 找到当前主项对应的子菜单
         var subnav = el.nextElementSibling;
         // 找到箭头图标
         var arrow = el.querySelector('.subnav-arrow');
         
-        // 切换显示/隐藏
-        if (subnav.style.display === 'block') {
-            subnav.style.display = 'none';
-            arrow.style.transform = 'rotate(0deg)'; // 箭头复原
+        // 切换子菜单隐藏/显示（用classList，优先级高于普通style）
+        if (subnav.classList.contains('hidden')) {
+            subnav.classList.remove('hidden'); // 移除隐藏类，显示子菜单
+            arrow.style.transform = 'rotate(180deg)'; // 箭头旋转展开
         } else {
-            subnav.style.display = 'block';
-            arrow.style.transform = 'rotate(180deg)'; // 箭头旋转180度表示展开
+            subnav.classList.add('hidden'); // 添加隐藏类，隐藏子菜单
+            arrow.style.transform = 'rotate(0deg)'; // 箭头复原折叠
         }
     }
 
