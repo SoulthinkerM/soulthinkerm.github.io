@@ -487,8 +487,19 @@
 </script>
             <div class="main">
                 
-    <div class="container profile-container">
-    <div class="intro">
+    <div class="container profile-container" style="
+    min-height: calc(100vh - 80px);  /* 核心：占满视口高度，减去顶部导航栏高度，避免遮挡 */
+    display: flex;                  /* flex布局实现垂直居中 */
+    justify-content: center;        /* 水平居中（保持原有） */
+    align-items: center;            /* 垂直居中（核心效果） */
+    padding: 40px 0;                /* 上下留间距，避免贴边 */
+    box-sizing: border-box;         /* 防止padding撑大容器 */
+">
+    <div class="intro" style="
+        width: 100%;                /* 保持内容宽度100% */
+        max-width: 600px;           /* 限制最大宽度，大屏不拉伸 */
+        text-align: center;         /* 所有内容居中对齐 */
+    ">
         <div class="avatar">
             <a href="/"><img src="/image/avatar.png"></a>
         </div>
@@ -496,16 +507,16 @@
         <div class="description"><p>THERE IS NOTHING WRONG TO BE ORDINARY.<br>平凡无罪</p>
 </div>
 
-        <!-- ========== 新增：动态文案容器（核心） ========== -->
+        <!-- ========== 动态文案容器 ========== -->
         <div id="dynamic-profile-text" style="
-            margin: 20px 0;        /* 上下间距20px，左右无间距 */
-            font-size: 16px;       /* 字号16px，比固定文案稍小 */
-            color: #666;           /* 浅灰色，不抢固定文案的视觉焦点 */
-            line-height: 2;        /* 行高2，排版更宽松 */
-            text-align: center;    /* 居中对齐，和固定文案保持一致 */
-            letter-spacing: 0.5px; /* 轻微字间距，提升可读性 */
+            margin: 20px 0;        
+            font-size: 16px;       
+            color: #666;           
+            line-height: 2;        
+            text-align: center;    
+            letter-spacing: 0.5px; 
         ">
-            <!-- 内容会由JS根据语言选择动态填充，无需写静态文字 -->
+            <!-- JS动态填充内容 -->
         </div>
 
         <div class="links">
