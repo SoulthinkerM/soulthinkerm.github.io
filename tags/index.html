@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="素心客 | Soulthinker">
+
+
+<title>标签分类 | 素心客 | Soulthinker M</title>
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@5.0.31/jquery.fancybox.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const pagebody = document.getElementsByTagName('body')[0]
+
+            function setTheme(status) {
+
+                if (status === 'dark') {
+                    window.sessionStorage.theme = 'dark'
+                    pagebody.classList.add('dark-theme');
+
+                } else if (status === 'light') {
+                    window.sessionStorage.theme = 'light'
+                    pagebody.classList.remove('dark-theme');
+                }
+            };
+
+            setTheme(window.sessionStorage.theme)
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">素心客 | Soulthinker</a></div>
+            <div class="menu navbar-right">
+                <!-- 导航项渲染：区分有子菜单的works和普通导航项 -->
+                
+                   
+                
+                    <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
+                    
+                    <div class="menu-item has-subnav ">
+                        <!-- 核心修改1：去掉href、添加no-link类、onclick阻止跳转 -->
+                        <a class="main-nav-link no-link" data-nav-key="works" onclick="return false;">阶段性成品</a>
+                        <!-- 子菜单容器 -->
+                        <div class="subnav-menu">
+                            
+                                
+                            <a class="subnav-item " data-nav-key="life_gamification" href="/categories/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96/">人生游戏化</a>
+                            
+                                
+                            <a class="subnav-item " data-nav-key="life_demolition" href="/categories/%E4%BA%BA%E7%94%9F%E6%8B%86%E8%BF%81/">人生拆迁</a>
+                            
+                        </div>
+                    </div>
+                    
+                
+                    
+                
+                    <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
+                    
+                    <!-- 普通导航项：data-nav-key绑定到a标签 -->
+                    <a class="menu-item " data-nav-key="research" href="/categories/%E7%A0%94%E7%A9%B6%E6%97%A5%E5%BF%97/">研究日志</a>
+                    
+                
+                    
+                
+                    <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
+                    
+                    <!-- 普通导航项：data-nav-key绑定到a标签 -->
+                    <a class="menu-item " data-nav-key="essays" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                    
+                
+                    
+                
+                    <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
+                    
+                    <!-- 普通导航项：data-nav-key绑定到a标签 -->
+                    <a class="menu-item " data-nav-key="timeline" href="/timeline/">内容时间线</a>
+                    
+                
+                    
+                
+                    <!-- 有子菜单的works主项：修复data-nav-key绑定到a标签 -->
+                    
+                    <!-- 普通导航项：data-nav-key绑定到a标签 -->
+                    <a class="menu-item active" data-nav-key="tags" href="/tags/">标签分类</a>
+                    
+                
+                
+
+                <!-- 语言按钮：保持不变 -->
+                <div class="language-switch" style="margin-right: 15px; display: inline-block;">
+                    <a id="lang-zh" style="color: #ff7242; font-weight: bold; text-decoration: none; margin: 0 8px; cursor: pointer;">中</a>
+                    <span>|</span>
+                    <a id="lang-en" style="color: #666; text-decoration: none; margin: 0 8px; cursor: pointer;">EN</a>
+                </div>
+
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+<nav class="navbar-mobile" id="nav-mobile">
+    <div class="container">
+        <div class="navbar-header">
+            <div>
+                <a href="/">素心客 | Soulthinker</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+            </div>
+            <div class="menu-toggle" onclick="mobileBtn()">
+                <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z"/></svg>
+                <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 12.708l-5.246 5.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354L11.292 12L6.046 6.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 11.292l5.246-5.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354L12.708 12l5.246 5.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16z"/></svg>
+            </div>
+        </div>
+        <div class="menu" id="mobile-menu">
+            <!-- 移动端语言切换：移到导航顶部，更显眼 -->
+            <div class="mobile-lang-switch" style="padding: 10px 0; border-bottom: 1px solid #eee; margin-bottom: 10px;">
+                <a id="lang-zh-mobile" style="color: #ff7242; font-weight: bold; text-decoration: none; margin: 0 12px; cursor: pointer;">中</a>
+                <span>|</span>
+                <a id="lang-en-mobile" style="color: #666; text-decoration: none; margin: 0 12px; cursor: pointer;">EN</a>
+            </div>
+
+            <!-- 移动端导航项：折叠式子菜单 -->
+            
+                
+            
+                <!-- 带子菜单的主项：可折叠 -->
+                
+                <div class="mobile-menu-item has-subnav ">
+                    <!-- 主菜单点击展开/折叠子菜单 -->
+                    <div class="main-nav-title" onclick="toggleSubnav(this)" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; cursor: pointer;">
+                        <!-- 核心修改2：移动端去掉href、添加no-link类、onclick阻止跳转 -->
+                        <a class="main-nav-link no-link" data-nav-key="works" onclick="return false;">阶段性成品</a>
+                        <!-- 展开/折叠箭头图标 -->
+                        <svg class="subnav-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <!-- 子菜单默认隐藏：用hidden类替代内联style，核心修复 -->
+                    <div class="mobile-subnav-menu hidden">
+                        
+                            
+                        <a class="mobile-subnav-item " data-nav-key="life_gamification" href="/categories/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96/">人生游戏化</a>
+                        
+                            
+                        <a class="mobile-subnav-item " data-nav-key="life_demolition" href="/categories/%E4%BA%BA%E7%94%9F%E6%8B%86%E8%BF%81/">人生拆迁</a>
+                        
+                    </div>
+                </div>
+                
+            
+                
+            
+                <!-- 带子菜单的主项：可折叠 -->
+                
+                <!-- 普通主菜单 -->
+                <a class="mobile-menu-item " data-nav-key="research" href="/categories/%E7%A0%94%E7%A9%B6%E6%97%A5%E5%BF%97/">研究日志</a>
+                
+            
+                
+            
+                <!-- 带子菜单的主项：可折叠 -->
+                
+                <!-- 普通主菜单 -->
+                <a class="mobile-menu-item " data-nav-key="essays" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                
+            
+                
+            
+                <!-- 带子菜单的主项：可折叠 -->
+                
+                <!-- 普通主菜单 -->
+                <a class="mobile-menu-item " data-nav-key="timeline" href="/timeline/">内容时间线</a>
+                
+            
+                
+            
+                <!-- 带子菜单的主项：可折叠 -->
+                
+                <!-- 普通主菜单 -->
+                <a class="mobile-menu-item active" data-nav-key="tags" href="/tags/">标签分类</a>
+                
+            
+        </div>
+    </div>
+</nav>
+
+    <!-- 导航栏样式：新增子菜单样式 + 保留原有常亮样式 -->
+    <style>
+        /* 基础导航项样式 */
+        .menu-item {
+            position: relative;
+            transition: all 0.2s ease;
+            margin: 0 8px;
+            opacity: 0.8;
+            display: inline-block;
+        }
+        .menu-item:hover {
+            opacity: 1;
+        }
+        .main-nav-link {
+            color: inherit !important;
+            text-decoration: none !important;
+            padding: 8px 4px;
+            display: inline-block;
+        }
+
+        /* 核心修改3：新增不可点击导航项样式 */
+        .main-nav-link.no-link {
+            cursor: default !important; /* 鼠标指针改为默认（非手型） */
+            pointer-events: none !important; /* 禁用所有点击事件 */
+            text-decoration: none !important; /* 确保无下划线 */
+        }
+
+        /* PC端主菜单常亮 */
+        .navbar .menu .menu-item.active,
+        .navbar .menu .menu-item.has-subnav.active .main-nav-link {
+            color: #ff7242 !important;
+            font-weight: 600 !important;
+            opacity: 1 !important;
+        }
+
+        /* PC端子菜单样式（悬浮显示） */
+        .subnav-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 8px 0;
+            min-width: 150px;
+            display: none;
+            z-index: 999;
+        }
+        .has-subnav:hover .subnav-menu {
+            display: block;
+        }
+        .subnav-item {
+            display: block;
+            padding: 8px 16px;
+            color: #333 !important;
+            text-decoration: none !important;
+            transition: background 0.2s ease;
+        }
+        .subnav-item:hover,
+        .subnav-item.active {
+            background: #f5f5f5;
+            color: #ff7242 !important;
+            font-weight: 600 !important;
+        }
+
+        /* 移动端导航基础样式 */
+        .mobile-menu-item {
+            display: block;
+            padding: 10px 0;
+            color: inherit !important;
+            text-decoration: none !important;
+            opacity: 0.8;
+            transition: all 0.2s ease;
+        }
+        .mobile-menu-item.active,
+        .mobile-menu-item.has-subnav.active .main-nav-link {
+            color: #ff7242 !important;
+            font-weight: 600 !important;
+            opacity: 1 !important;
+        }
+        .mobile-menu-item:hover {
+            opacity: 1;
+        }
+
+        /* 核心修复：移动端子菜单样式，去掉!important硬隐藏，用class控制 */
+        .mobile-subnav-menu {
+            padding-left: 15px;
+            margin-top: 5px !important;
+        }
+        /* 新增隐藏类，替代原来的display: none !important */
+        .mobile-subnav-menu.hidden {
+            display: none !important;
+        }
+        .mobile-subnav-item {
+            display: block;
+            padding: 8px 0;
+            color: #666 !important; /* 子菜单文字浅一点，区分主菜单 */
+            opacity: 0.8;
+        }
+        .mobile-subnav-item.active {
+            color: #ff7242 !important; /* 子菜单激活态和主菜单一致 */
+            font-weight: 600 !important;
+            opacity: 1 !important;
+        }
+
+        /* 原有常亮样式兼容 */
+        .navbar-mobile .menu .menu-item.active {
+            color: #ff7242 !important;
+            font-weight: 600 !important;
+            opacity: 1 !important;
+        }
+
+        /* 新增：移动端折叠菜单优化样式 */
+        .mobile-lang-switch {
+            text-align: center;
+        }
+        .main-nav-title {
+            user-select: none; /* 防止文字被选中 */
+        }
+        .subnav-arrow {
+            transition: transform 0.2s ease; /* 箭头旋转动画 */
+        }
+    </style>
+</header>
+<script>
+    // 移动端菜单逻辑：保持不变
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        } else {
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+
+    // 核心修复：移动端子菜单折叠/展开函数，用class替代直接修改style（解决!important覆盖问题）
+    function toggleSubnav(el) {
+        // 找到当前主项对应的子菜单
+        var subnav = el.nextElementSibling;
+        // 找到箭头图标
+        var arrow = el.querySelector('.subnav-arrow');
+        
+        // 切换子菜单隐藏/显示（用classList，优先级高于普通style）
+        if (subnav.classList.contains('hidden')) {
+            subnav.classList.remove('hidden'); // 移除隐藏类，显示子菜单
+            arrow.style.transform = 'rotate(180deg)'; // 箭头旋转展开
+        } else {
+            subnav.classList.add('hidden'); // 添加隐藏类，隐藏子菜单
+            arrow.style.transform = 'rotate(0deg)'; // 箭头复原折叠
+        }
+    }
+
+    // 1. 导航文字映射表：新增子菜单的中英文
+    const navTextMap = {
+        zh: {
+            works: '阶段性成品',
+            life_gamification: '人生游戏化',
+            life_demolition: '人生拆迁',
+            research: '研究日志',
+            essays: '随笔',
+            timeline: '内容时间线',
+            tags: '标签分类'
+        },
+        en: {
+            works: 'Phase Works',
+            life_gamification: 'Life Gamification',
+            life_demolition: 'Life Demolition',
+            research: 'Research Logs',
+            essays: 'Essays',
+            timeline: 'Content Timeline',
+            tags: 'Tag Categories'
+        }
+    };
+
+    // 动态文案映射表
+    const dynamicTextMap = {
+        zh: [
+            "哲学学习和实践者 | 正在克服拖延症",
+            "人生拆迁、重建建筑师",
+            "人生游戏化玩家 | 正在享受人生"
+        ],
+        en: [
+            "Philosophy learner & practitioner | Overcoming procrastination",
+            "Life's demolition & reconstruction architect",
+            "Life gamification player | Enjoying life"
+        ]
+    };
+
+    // 2. 声明DOM变量
+    let langZh, langEn, langZhMobile, langEnMobile, dynamicTextEl;
+
+    // 3. 切换语言核心函数：简化选择器，修复匹配逻辑
+    function changeLang(targetLang) {
+        localStorage.setItem('blog-lang', targetLang);
+        
+        // 匹配所有带data-nav-key的元素（主菜单+子菜单）
+        const allNavItems = document.querySelectorAll('[data-nav-key]');
+        allNavItems.forEach(item => {
+            const navKey = item.getAttribute('data-nav-key');
+            // 确保映射表中有对应的翻译
+            if (navTextMap[targetLang] && navTextMap[targetLang][navKey]) {
+                item.textContent = navTextMap[targetLang][navKey];
+            }
+        });
+
+        // 更新动态文案（如果有）
+        if (dynamicTextEl) {
+            dynamicTextEl.innerHTML = dynamicTextMap[targetLang].join('<br>');
+        }
+        
+        // 语言按钮高亮状态
+        const langButtons = {
+            zh: document.getElementById('lang-zh'),
+            en: document.getElementById('lang-en'),
+            zhMobile: document.getElementById('lang-zh-mobile'),
+            enMobile: document.getElementById('lang-en-mobile')
+        };
+        if (targetLang === 'zh') {
+            langButtons.zh.style.color = '#ff7242';
+            langButtons.zh.style.fontWeight = 'bold';
+            langButtons.en.style.color = '#666';
+            langButtons.en.style.fontWeight = 'normal';
+            langButtons.zhMobile.style.color = '#ff7242';
+            langButtons.zhMobile.style.fontWeight = 'bold';
+            langButtons.enMobile.style.color = '#666';
+            langButtons.enMobile.style.fontWeight = 'normal';
+        } else {
+            langButtons.en.style.color = '#ff7242';
+            langButtons.en.style.fontWeight = 'bold';
+            langButtons.zh.style.color = '#666';
+            langButtons.zh.style.fontWeight = 'normal';
+            langButtons.enMobile.style.color = '#ff7242';
+            langButtons.enMobile.style.fontWeight = 'bold';
+            langButtons.zhMobile.style.color = '#666';
+            langButtons.zhMobile.style.fontWeight = 'normal';
+        }
+    }
+
+    // 4. 页面加载初始化：确保优先执行中文
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取语言按钮元素
+        langZh = document.getElementById('lang-zh');
+        langEn = document.getElementById('lang-en');
+        langZhMobile = document.getElementById('lang-zh-mobile');
+        langEnMobile = document.getElementById('lang-en-mobile');
+        dynamicTextEl = document.getElementById('dynamic-profile-text');
+
+        // 绑定点击事件
+        if (langZh) langZh.addEventListener('click', () => changeLang('zh'));
+        if (langEn) langEn.addEventListener('click', () => changeLang('en'));
+        if (langZhMobile) langZhMobile.addEventListener('click', () => changeLang('zh'));
+        if (langEnMobile) langEnMobile.addEventListener('click', () => changeLang('en'));
+
+        // 初始化语言：优先本地存储，没有则默认中文
+        const savedLang = localStorage.getItem('blog-lang') || 'zh';
+        changeLang(savedLang);
+    });
+</script>
+            <div class="main">
+                <div class="container">
+    <article class="post-wrap page">
+        <header class="post-header">
+            <h1 class="post-title">标签分类</h1>
+        </header>
+        <section class="post-content">
+            <div class="tag-cloud">
+                <div class="tag-cloud-tags">
+                    
+                    <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 14px; color: #777">测试</a>
+                    
+                    <a href="/tags/%E4%B8%AD%E6%96%87/" style="font-size: 14px; color: #777">中文</a>
+                    
+                    <a href="/tags/English/" style="font-size: 14px; color: #777">English</a>
+                    
+                    <a href="/tags/%E6%80%9D%E8%80%83/" style="font-size: 14px; color: #777">思考</a>
+                    
+                    <a href="/tags/Life-Gamification/" style="font-size: 14px; color: #777">Life Gamification</a>
+                    
+                    <a href="/tags/Thinking/" style="font-size: 14px; color: #777">Thinking</a>
+                    
+                    <a href="/tags/Test/" style="font-size: 14px; color: #777">Test</a>
+                    
+                    <a href="/tags/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96/" style="font-size: 14px; color: #777">人生游戏化</a>
+                    
+                </div>
+            </div>
+        </section>
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 素心客 | Soulthinker | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
