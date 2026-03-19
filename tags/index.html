@@ -12,6 +12,7 @@
 
 
 
+
 <title>标签分类 | 素心客 | Soulthinker M</title>
 
 
@@ -28,13 +29,13 @@
 
 
 
+
     <!-- scripts list from _config.yml -->
     
     <script src="/js/script.js"></script>
     
     <script src="/js/tocbot.min.js"></script>
     
-
 
 
 
@@ -188,6 +189,7 @@
                         
                     </div>
                 </div>
+                
                 
             
                 
@@ -438,7 +440,7 @@
         if (dynamicTextEl) {
             dynamicTextEl.innerHTML = dynamicTextMap[targetLang].join('<br>');
         }
-        
+
         // 语言按钮高亮状态
         const langButtons = {
             zh: document.getElementById('lang-zh'),
@@ -490,60 +492,185 @@
             <div class="main">
 
 
-<div class="container">
-    <div class="post-wrap tags">
-        <h2 class="post-title">-&nbsp;Tags&nbsp;-</h2>
-    </div>
-    <div class="post-wrap archive">
-        
-            <h3>中文标签</h3>
-        
-        <article class="archive-item">
-            <a class="archive-item-link" href="/tags/%E6%B5%8B%E8%AF%95/">测试</a>
-            <span class="archive-item-date">1 篇文章</span>
-        </article>
-        
-        <article class="archive-item">
-            <a class="archive-item-link" href="/tags/%E6%80%9D%E8%80%83/">思考</a>
-            <span class="archive-item-date">0 篇文章</span>
-        </article>
-        
-        <article class="archive-item">
-            <a class="archive-item-link" href="/tags/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96/">人生游戏化</a>
-            <span class="archive-item-date">0 篇文章</span>
-        </article>
-        
-            <h3>English Tags</h3>
-        
-        <article class="archive-item">
-            <a class="archive-item-link" href="/tags/Test/">Test</a>
-            <span class="archive-item-date">1 post</span>
-        </article>
-        
-        <article class="archive-item">
-            <a class="archive-item-link" href="/tags/Thinking/">Thinking</a>
-            <span class="archive-item-date">0 posts</span>
-        </article>
-        
-        <article class="archive-item">
-            <a class="archive-item-link" href="/tags/Life-Gamification/">Life Gamification</a>
-            <span class="archive-item-date">0 posts</span>
-        </article>
-        
-        <article class="archive-item">
-            <a class="archive-item-link" href="/tags/English/">English</a>
-            <span class="archive-item-date">0 posts</span>
-        </article>
-        
-        <article class="archive-item">
-            <a class="archive-item-link" href="/tags/Life/">Life</a>
-            <span class="archive-item-date">0 posts</span>
-        </article>
+<div class="category-page" style="max-width: 800px; margin: 40px auto; padding: 0 15px;">
+  <!-- 标签标题（前端 JS 动态修改语言） -->
+  <h1 id="category-title" style="color: #333; font-size: 20px; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+    标签分类
+  </h1>
 
+  <!-- 所有标签文章：先隐藏，前端筛选对应语言 -->
+  <div id="all-category-posts" style="display: none;">
 
+      <article class="post-item" data-lang="zh-CN" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+        <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+          <a href="/tags/%E6%B5%8B%E8%AF%95/" style="color: #ff7242; text-decoration: none;">
+            测试
+          </a>
+        </h3>
+        <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+          1 篇文章
+        </div>
+      </article>
+
+      <article class="post-item" data-lang="zh-CN" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+        <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+          <a href="/tags/%E6%80%9D%E8%80%83/" style="color: #ff7242; text-decoration: none;">
+            思考
+          </a>
+        </h3>
+        <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+          0 篇文章
+        </div>
+      </article>
+
+      <article class="post-item" data-lang="zh-CN" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+        <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+          <a href="/tags/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96/" style="color: #ff7242; text-decoration: none;">
+            人生游戏化
+          </a>
+        </h3>
+        <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+          0 篇文章
+        </div>
+      </article>
+
+      <article class="post-item" data-lang="en" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+        <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+          <a href="/tags/Test/" style="color: #ff7242; text-decoration: none;">
+            Test
+          </a>
+        </h3>
+        <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+          1 post
+        </div>
+      </article>
+
+      <article class="post-item" data-lang="en" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+        <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+          <a href="/tags/Thinking/" style="color: #ff7242; text-decoration: none;">
+            Thinking
+          </a>
+        </h3>
+        <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+          0 posts
+        </div>
+      </article>
+
+      <article class="post-item" data-lang="en" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+        <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+          <a href="/tags/Life-Gamification/" style="color: #ff7242; text-decoration: none;">
+            Life Gamification
+          </a>
+        </h3>
+        <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+          0 posts
+        </div>
+      </article>
+
+      <article class="post-item" data-lang="en" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+        <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+          <a href="/tags/English/" style="color: #ff7242; text-decoration: none;">
+            English
+          </a>
+        </h3>
+        <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+          0 posts
+        </div>
+      </article>
+
+      <article class="post-item" data-lang="en" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+        <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
+          <a href="/tags/Life/" style="color: #ff7242; text-decoration: none;">
+            Life
+          </a>
+        </h3>
+        <div class="post-meta" style="color: #999; font-size: 12px; margin-bottom: 10px;">
+          0 posts
+        </div>
+      </article>
+
+  </div>
+
+  <!-- 筛选后的文章容器 -->
+  <div id="filtered-category-posts"></div>
+
+  <!-- 无文章提示 -->
+  <div id="no-category-posts-tip" style="color: #999; text-align: center; padding: 40px 0; display: none;">
+    暂无该分类的文章～
+  </div>
 </div>
-</div>
 
+<!-- 前端 JS：动态筛选对应语言的文章 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. 获取当前语言
+    const currentLang = localStorage.getItem('blog-lang') || 'zh-CN';
+
+    // 2. 文本映射
+    const textMap = {
+      zh: {
+        readMore: '阅读全文 →',
+        noPosts: '暂无该分类的文章～',
+        articles: '篇文章',
+        title: '标签分类'
+      },
+      en: {
+        readMore: 'Read More →',
+        noPosts: 'No posts in this category yet～',
+        articles: 'posts',
+        title: 'Tag Categories'
+      }
+    };
+
+    // 3. 适配标签标题的多语言
+    const categoryTitleEl = document.getElementById('category-title');
+    const categoryTitleMap = {
+      '标签分类': 'Tag Categories',
+      '人生拆迁': 'Life Demolition',
+      '人生游戏化': 'Life Gamification',
+      '阶段性成品': 'Phase Works',
+      '研究日志': 'Research Logs',
+      '随笔': 'Essays'
+    };
+    // 反向映射（英文→中文）
+    const reverseCategoryMap = Object.fromEntries(Object.entries(categoryTitleMap).map(([k, v]) => [v, k]));
+
+    if (currentLang === 'en' && categoryTitleMap[categoryTitleEl.textContent]) {
+      categoryTitleEl.textContent = categoryTitleMap[categoryTitleEl.textContent];
+    } else if (currentLang === 'zh-CN' && reverseCategoryMap[categoryTitleEl.textContent]) {
+      categoryTitleEl.textContent = reverseCategoryMap[categoryTitleEl.textContent];
+    }
+
+    // 4. 筛选对应语言的文章
+    const allPosts = document.querySelectorAll('#all-category-posts .post-item');
+    const filteredPosts = Array.from(allPosts).filter(post => {
+      return post.getAttribute('data-lang') === currentLang;
+    });
+
+    const filteredContainer = document.getElementById('filtered-category-posts');
+    const noPostsTip = document.getElementById('no-category-posts-tip');
+
+    if (filteredPosts.length > 0) {
+      filteredPosts.forEach(post => {
+        // 更新文章数量文字
+        const metaEl = post.querySelector('.post-meta');
+        const countText = metaEl.textContent.trim();
+        const countNum = parseInt(countText);
+        if (currentLang === 'en') {
+          metaEl.textContent = countNum + ' posts';
+        } else {
+          metaEl.textContent = countNum + ' 篇文章';
+        }
+        filteredContainer.appendChild(post);
+      });
+      noPostsTip.style.display = 'none';
+    } else {
+      filteredContainer.innerHTML = '';
+      noPostsTip.textContent = textMap[currentLang].noPosts;
+      noPostsTip.style.display = 'block';
+    }
+  });
+</script>
             </div>
             <footer id="footer" class="footer">
     <div class="copyright">
