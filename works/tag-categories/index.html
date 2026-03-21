@@ -343,6 +343,31 @@
         .subnav-arrow {
             transition: transform 0.2s ease; /* 箭头旋转动画 */
         }
+
+        /* 分类双栏布局样式 */
+        .category-columns {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .category-column {
+            flex: 1;
+            min-width: 280px;
+        }
+        .category-column h3 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff7242;
+        }
+        @media (max-width: 768px) {
+            .category-columns {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .category-column {
+                min-width: 100%;
+            }
+        }
     </style>
 </header>
 <script>
@@ -490,50 +515,55 @@
         <h2 class="post-title">-&nbsp;Categories&nbsp;-</h2>
     </div>
     <div class="post-wrap archive">
+        <div class="category-columns">
+            <div class="category-column">
+                <h3>中文分类</h3>
 
-            <h3>中文分类</h3>
+                <article class="archive-item">
+                    <a class="archive-item-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a>
+                    <span class="archive-item-date">1 篇文章</span>
+                </article>
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a>
-            <span class="archive-item-date">1 篇文章</span>
-        </article>
+                <article class="archive-item">
+                    <a class="archive-item-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a>
+                    <span class="archive-item-date">0 篇文章</span>
+                </article>
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a>
-            <span class="archive-item-date">0 篇文章</span>
-        </article>
+                <article class="archive-item">
+                    <a class="archive-item-link" href="/categories/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96/">人生游戏化</a>
+                    <span class="archive-item-date">0 篇文章</span>
+                </article>
+            </div>
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/categories/%E4%BA%BA%E7%94%9F%E6%B8%B8%E6%88%8F%E5%8C%96/">人生游戏化</a>
-            <span class="archive-item-date">0 篇文章</span>
-        </article>
+            <div class="category-column">
+                <h3>English Categories</h3>
 
-            <h3>English Categories</h3>
+                <article class="archive-item">
+                    <a class="archive-item-link" href="/categories/测试/">Test</a>
+                    <span class="archive-item-date">1 篇文章</span>
+                </article>
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/categories/测试/">Test</a>
-            <span class="archive-item-date">1 篇文章</span>
-        </article>
+                <article class="archive-item">
+                    <a class="archive-item-link" href="/categories/思考/">Thinking</a>
+                    <span class="archive-item-date">0 篇文章</span>
+                </article>
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/categories/思考/">Thinking</a>
-            <span class="archive-item-date">0 篇文章</span>
-        </article>
+                <article class="archive-item">
+                    <a class="archive-item-link" href="/categories/人生游戏化/">Life Gamification</a>
+                    <span class="archive-item-date">0 篇文章</span>
+                </article>
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/categories/人生游戏化/">Life Gamification</a>
-            <span class="archive-item-date">0 篇文章</span>
-        </article>
+                <article class="archive-item">
+                    <a class="archive-item-link" href="/categories/Essays/">English</a>
+                    <span class="archive-item-date">0 篇文章</span>
+                </article>
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/categories/Essays/">English</a>
-            <span class="archive-item-date">0 篇文章</span>
-        </article>
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/categories/Life-Demolition/">Life</a>
-            <span class="archive-item-date">0 篇文章</span>
-        </article>
+                <article class="archive-item">
+                    <a class="archive-item-link" href="/categories/Life-Demolition/">Life</a>
+                    <span class="archive-item-date">0 篇文章</span>
+                </article>
+            </div>
+        </div>
 
 
 </div>
