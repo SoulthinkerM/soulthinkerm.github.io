@@ -437,6 +437,15 @@
             }
         });
 
+        // 匹配所有带 data-page-key 的页面标题元素
+        const allPageTitles = document.querySelectorAll('[data-page-key]');
+        allPageTitles.forEach(item => {
+            const pageKey = item.getAttribute('data-page-key');
+            if (navTextMap[targetLang] && navTextMap[targetLang][pageKey]) {
+                item.textContent = navTextMap[targetLang][pageKey];
+            }
+         });
+
         // 更新动态文案（如果有）
         if (dynamicTextEl) {
             dynamicTextEl.innerHTML = dynamicTextMap[targetLang].join('<br>');
