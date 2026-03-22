@@ -390,6 +390,7 @@
             research: '研究日志',
             essays: '随笔',
             timeline: '内容时间线',
+            categories_page: '分类列表',
             categories: '分类列表'
         },
         en: {
@@ -399,6 +400,7 @@
             research: 'Research Logs',
             essays: 'Essays',
             timeline: 'Content Timeline',
+            categories_page: 'Categories List',
             categories: 'Categories List'
         }
     };
@@ -437,6 +439,15 @@
         // 更新动态文案（如果有）
         if (dynamicTextEl) {
             dynamicTextEl.innerHTML = dynamicTextMap[targetLang].join('<br>');
+        // 匹配所有带 data-page-key 的页面标题元素
+        const allPageTitles = document.querySelectorAll('[data-page-key]');
+        allPageTitles.forEach(item => {
+            const pageKey = item.getAttribute('data-page-key');
+            if (navTextMap[targetLang] && navTextMap[targetLang][pageKey]) {
+                item.textContent = navTextMap[targetLang][pageKey];
+            }
+         });
+
         }
         
         // 语言按钮高亮状态
@@ -492,7 +503,7 @@
 
 <div class="container">
     <div class="post-wrap categories">
-        <h2 class="post-title">-&nbsp;Categories&nbsp;-</h2>
+        <h2 class="post-title" data-page-key="categories_page">分类列表</h2>
     </div>
     <div class="post-wrap archive">
         
