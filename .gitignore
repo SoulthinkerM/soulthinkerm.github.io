@@ -1,53 +1,51 @@
-# Compiled and build artifacts
+# Examples with source files only
+*.py
+*.js
+*.java
+*.go
+*.cpp
+*.h
+*.md
+*.txt
+*.json
+*.yml
+*.yaml
+*.toml
+*.cfg
+*.ini
+
+# Examples with artifacts
 *.pyc
-__pycache__/
-*.o
-*.obj
 *.class
+*.o
 *.exe
 *.dll
 *.so
 *.a
+*.obj
 *.out
-
-# Dependencies
 node_modules/
 venv/
 .venv/
-.env
-.env.local
-.env.*
-
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-*.swo
-
-# Editors
-.vscode/
-.idea/
-
-# System files
-.DS_Store
-Thumbs.db
-
-# Coverage
-coverage/
-htmlcov/
-.coverage
-
-# Distribution
+__pycache__/
 dist/
 build/
 target/
 .gradle/
-
-# Python specific
-.mypy_cache/
-.pytest_cache/
-
-# Compressed files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+.env
+.env.local
+*.env.*
+coverage/
+htmlcov/
+.coverage
 *.zip
 *.gz
 *.tar
@@ -66,3 +64,13 @@ target/
 *.Z
 *.lz
 *.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
+*.webm
