@@ -13,7 +13,7 @@
 
 
 
-<title>分类: 随笔 | 素心客 | Soulthinker M</title>
+<title data-page-key="essays_page">分类: 随笔 | 素心客 | Soulthinker M</title>
 
 
 
@@ -384,25 +384,35 @@
 
     // 1. 导航文字映射表：新增子菜单的中英文
     const navTextMap = {
-        zh: {
-            works: '阶段性成品',
-            life_gamification: '人生游戏化',
-            life_demolition: '人生拆迁',
-            research: '研究日志',
-            essays: '随笔',
-            timeline: '内容时间线',
-            tags: '标签分类'
-        },
-        en: {
-            works: 'Phase Works',
-            life_gamification: 'Life Gamification',
-            life_demolition: 'Life Demolition',
-            research: 'Research Logs',
-            essays: 'Essays',
-            timeline: 'Content Timeline',
-            tags: 'Tag Categories'
-        }
-    };
+    zh: {
+        works: '阶段性成品',
+        life_gamification: '人生游戏化',
+        life_demolition: '人生拆迁',
+        research: '研究日志',
+        essays: '随笔',
+        timeline: '内容时间线',
+        tags: '标签分类',
+        // 新增页面标题翻译
+        life_gamification_page: '分类: 人生游戏化',
+        life_demolition_page: '分类: 人生拆迁',
+        research_page: '分类: 研究日志',
+        essays_page: '分类: 随笔'
+    },
+    en: {
+        works: 'Phase Works',
+        life_gamification: 'Life Gamification',
+        life_demolition: 'Life Demolition',
+        research: 'Research Logs',
+        essays: 'Essays',
+        timeline: 'Content Timeline',
+        tags: 'Tag Categories',
+        // 新增页面标题翻译
+        life_gamification_page: 'Category: Life Gamification',
+        life_demolition_page: 'Category: Life Demolition',
+        research_page: 'Category: Research Logs',
+        essays_page: 'Category: Essays'
+    }
+};
 
     // 动态文案映射表
     const dynamicTextMap = {
@@ -425,14 +435,13 @@
     function changeLang(targetLang) {
         localStorage.setItem('blog-lang', targetLang);
         
-        // 匹配所有带data-nav-key的元素（主菜单+子菜单）
-        const allNavItems = document.querySelectorAll('[data-nav-key]');
-        allNavItems.forEach(item => {
-            const navKey = item.getAttribute('data-nav-key');
-            // 确保映射表中有对应的翻译
-            if (navTextMap[targetLang] && navTextMap[targetLang][navKey]) {
-                item.textContent = navTextMap[targetLang][navKey];
-            }
+        // 更新页面标题（带data-page-key的元素）
+        const allPageTitles = document.querySelectorAll('[data-page-key]');
+        allPageTitles.forEach(item => {
+              const pageKey = item.getAttribute('data-page-key');
+              if (navTextMap[targetLang] && navTextMap[targetLang][pageKey]) {
+                   item.textContent = navTextMap[targetLang][pageKey];
+              }
         });
 
         // 更新动态文案（如果有）
@@ -498,7 +507,9 @@
   </h1>
 
   <!-- 所有分类文章：先隐藏，前端筛选对应语言 -->
-  <div id="all-category-posts" style="display: none;">
+  <h1 id="category-title" data-page-key="essays_page" style="color: #333; font-size: 20px; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+    随笔
+</h1>
     
       <article class="post-item" data-lang="zh-CN" style="margin-bottom: 30px; padding: 15px; border-radius: 8px; background: #f9f9f9;">
         <h3 class="post-title" style="margin: 0 0 10px 0; font-size: 16px;">
