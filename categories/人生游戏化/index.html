@@ -486,6 +486,11 @@
         // 初始化语言：优先本地存储，没有则默认中文
         const savedLang = localStorage.getItem('blog-lang') || 'zh';
         changeLang(savedLang);
+        
+        // 如果当前页面有分类标题，也需要更新
+        if (typeof updateCategoryPage === 'function') {
+            updateCategoryPage(savedLang);
+        }
     });
 </script>
             <div class="main">
@@ -532,61 +537,69 @@
 
 <!-- 前端JS：动态筛选对应语言的文章 -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // 1. 获取当前语言
-    const currentLang = localStorage.getItem('blog-lang') || 'zh-CN';
-    
-    // 2. 文本映射
-    const textMap = {
-      zh: {
-        readMore: '阅读全文 →',
-        noPosts: '暂无该分类的文章～'
-      },
-      en: {
-        readMore: 'Read More →',
-        noPosts: 'No posts in this category yet～'
-      }
-    };
+  // 分类标题多语言映射
+  const categoryTitleMap = {
+    '人生拆迁': 'Life Demolition',
+    '人生游戏化': 'Life Gamification',
+    '阶段性成品': 'Phase Works',
+    '研究日志': 'Research Logs',
+    '随笔': 'Essays'
+  };
+  const reverseCategoryMap = Object.fromEntries(Object.entries(categoryTitleMap).map(([k, v]) => [v, k]));
 
-    // 3. 适配分类标题的多语言（比如“人生拆迁”→“Life Demolition”）
+  // 文本映射
+  const textMap = {
+    zh: {
+      readMore: '阅读全文 →',
+      noPosts: '暂无该分类的文章～'
+    },
+    en: {
+      readMore: 'Read More →',
+      noPosts: 'No posts in this category yet～'
+    }
+  };
+
+  // 更新页面内容的函数
+  function updateCategoryPage(targetLang) {
     const categoryTitleEl = document.getElementById('category-title');
-    const categoryTitleMap = {
-      '人生拆迁': 'Life Demolition',
-      '人生游戏化': 'Life Gamification',
-      '阶段性成品': 'Phase Works',
-      '研究日志': 'Research Logs',
-      '随笔': 'Essays'
-    };
-    // 反向映射（英文→中文）
-    const reverseCategoryMap = Object.fromEntries(Object.entries(categoryTitleMap).map(([k, v]) => [v, k]));
     
-    if (currentLang === 'en' && categoryTitleMap[categoryTitleEl.textContent]) {
+    // 更新分类标题
+    if (targetLang === 'en' && categoryTitleMap[categoryTitleEl.textContent]) {
       categoryTitleEl.textContent = categoryTitleMap[categoryTitleEl.textContent];
-    } else if (currentLang === 'zh-CN' && reverseCategoryMap[categoryTitleEl.textContent]) {
+    } else if (targetLang === 'zh' && reverseCategoryMap[categoryTitleEl.textContent]) {
       categoryTitleEl.textContent = reverseCategoryMap[categoryTitleEl.textContent];
     }
 
-    // 4. 筛选对应语言的文章
+    // 筛选对应语言的文章
     const allPosts = document.querySelectorAll('#all-category-posts .post-item');
     const filteredPosts = Array.from(allPosts).filter(post => {
-      return post.getAttribute('data-lang') === currentLang;
+      return post.getAttribute('data-lang') === (targetLang === 'zh' ? 'zh-CN' : 'en-US');
     });
 
     const filteredContainer = document.getElementById('filtered-category-posts');
     const noPostsTip = document.getElementById('no-category-posts-tip');
-    
+
     if (filteredPosts.length > 0) {
       filteredPosts.forEach(post => {
-        // 更新“阅读全文”按钮文字
-        post.querySelector('.read-more').textContent = textMap[currentLang].readMore;
+        // 更新"阅读全文"按钮文字
+        const readMoreBtn = post.querySelector('.read-more');
+        if (readMoreBtn) {
+          readMoreBtn.textContent = textMap[targetLang].readMore;
+        }
         filteredContainer.appendChild(post);
       });
       noPostsTip.style.display = 'none';
     } else {
       filteredContainer.innerHTML = '';
-      noPostsTip.textContent = textMap[currentLang].noPosts;
+      noPostsTip.textContent = textMap[targetLang].noPosts;
       noPostsTip.style.display = 'block';
     }
+  }
+
+  // 页面加载初始化
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedLang = localStorage.getItem('blog-lang') || 'zh';
+    updateCategoryPage(savedLang);
   });
 </script>
             </div>
