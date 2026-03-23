@@ -12,7 +12,7 @@
 
 
 
-<title>研究日志 | 素心客 | Soulthinker M</title>
+<title data-page-key="research_page">研究日志 | 素心客 | Soulthinker M</title>
 
 
 
@@ -438,7 +438,12 @@
         allPageTitles.forEach(item => {
             const pageKey = item.getAttribute('data-page-key');
             if (navTextMap[targetLang] && navTextMap[targetLang][pageKey]) {
-                item.textContent = navTextMap[targetLang][pageKey];
+                // 特殊处理 title 标签：只更新 title 内容，保留后缀
+                if (item.tagName === 'TITLE') {
+                    item.textContent = navTextMap[targetLang][pageKey] + ' | 素心客 | Soulthinker M';
+                } else {
+                    item.textContent = navTextMap[targetLang][pageKey];
+                }
             }
          });
 
