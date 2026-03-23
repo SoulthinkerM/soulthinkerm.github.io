@@ -439,6 +439,10 @@
             "Life's demolition & reconstruction architect",
             "Life gamification player | Enjoying life"
         ]
+    };
+
+    // 更新页面标题函数
+    function updatePageTitles(targetLang) {
         // 匹配所有带 data-page-key 的页面标题元素
         const allPageTitles = document.querySelectorAll('[data-page-key]');
         allPageTitles.forEach(item => {
@@ -447,8 +451,7 @@
                 item.textContent = navTextMap[targetLang][pageKey];
             }
          });
-
-    };
+    }
 
     // 2. 声明 DOM 变量
     let langZh, langEn, langZhMobile, langEnMobile, dynamicTextEl;
@@ -466,6 +469,9 @@
                 item.textContent = navTextMap[targetLang][navKey];
             }
         });
+
+        // 更新页面标题（如"标签分类"等）
+        updatePageTitles(targetLang);
 
         // 更新动态文案（如果有）
         if (dynamicTextEl) {
