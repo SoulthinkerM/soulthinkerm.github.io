@@ -435,6 +435,16 @@
     function changeLang(targetLang) {
         localStorage.setItem('blog-lang', targetLang);
         
+        // 匹配所有带 data-nav-key 的元素（主菜单 + 子菜单）
+        const allNavItems = document.querySelectorAll('[data-nav-key]');
+        allNavItems.forEach(item => {
+            const navKey = item.getAttribute('data-nav-key');
+            // 确保映射表中有对应的翻译
+            if (navTextMap[targetLang] && navTextMap[targetLang][navKey]) {
+                item.textContent = navTextMap[targetLang][navKey];
+            }
+        });
+
        // 更新页面标题（带data-page-key的元素）
         const allPageTitles = document.querySelectorAll('[data-page-key]');
         allPageTitles.forEach(item => {
