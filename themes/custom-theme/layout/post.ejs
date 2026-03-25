@@ -1,0 +1,25 @@
+<article class="post-item" data-lang="{{ page.lang || 'zh-CN' }}">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <div class="post-meta">
+    <span class="post-date">{{ page.date.format('YYYY/MM/DD') }}</span>
+    {% if page.categories %}
+    <span class="post-categories">
+      {% for cat in page.categories.toArray() %}
+        {{ cat.name }}{% if not loop.last %}, {% endif %}
+      {% endfor %}
+    </span>
+    {% endif %}
+  </div>
+  
+  <div class="post-content">
+    {{ page.content }}
+  </div>
+  
+  {% if page.tags %}
+  <div class="post-tags">
+    {% for tag in page.tags.toArray() %}
+      <a href="/tags/{{ tag.name }}/" class="tag-link">#{{ tag.name }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</article>

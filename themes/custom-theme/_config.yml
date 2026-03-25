@@ -1,0 +1,46 @@
+# Custom Theme Configuration
+
+# Navigation menu
+menu:
+  Home: /
+  Archives: /archives
+  Timeline: /timeline
+  Categories: /categories
+
+# Custom navigation with submenus
+custom_menu:
+  - name: 阶段性成品
+    key: works
+    has_subnav: true
+    children:
+      - name: 人生游戏化
+        key: life_gamification
+        url: /categories/人生游戏化/
+      - name: 人生拆迁
+        key: life_demolition
+        url: /categories/人生拆迁/
+
+# Social links
+social:
+  GitHub: https://github.com/
+  Twitter: https://twitter.com/
+
+# Favicon
+favicon: /favicon.ico
+
+# Custom stylesheets
+stylesheets:
+  - /css/style.css
+
+# Custom scripts
+scripts:
+  - /js/script.js
+  - /js/tocbot.min.js
+
+# Multilingual support
+multilingual:
+  enable: true
+  default: zh-CN
+  languages:
+    - zh-CN
+    - en
