@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang || 'zh-CN' }}">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="{{ config.author }}">
+
+{% if page.title %}
+<title>{{ page.title }} | {{ config.title }}</title>
+{% else %}
+<title>{{ config.title }}</title>
+{% endif %}
+
+    <link rel="icon" href="/favicon.ico">
+
+    <!-- stylesheets list from _config.yml -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- scripts list from _config.yml -->
+    <script src="/js/script.js"></script>
+    <script src="/js/tocbot.min.js"></script>
+
+<meta name="generator" content="Hexo {{ hexo.version }}"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const pagebody = document.getElementsByTagName('body')[0]
+
+            function setTheme(status) {
+                if (status === 'dark') {
+                    window.sessionStorage.theme = 'dark'
+                    pagebody.classList.add('dark-theme');
+                } else if (status === 'light') {
+                    window.sessionStorage.theme = 'light'
+                    pagebody.classList.remove('dark-theme');
+                }
+            };
+
+            setTheme(window.sessionStorage.theme)
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">{{ config.title.split('|')[0] | trim }}</a></div>
+            <div class="menu navbar-right">
+                <!-- Navigation items will be rendered here -->
+                <div class="menu-item has-subnav">
+                    <a class="main-nav-link no-link" data-nav-key="works" onclick="return false;">阶段性成品</a>
+                    <div class="subnav-menu">
+                        <a class="subnav-item" data-nav-key="life_gamification" href="/categories/人生游戏化/">人生游戏化</a>
+                        <a class="subnav-item" data-nav-key="life_demolition" href="/categories/人生拆迁/">人生拆迁</a>
+                    </div>
+                </div>
+                
+                <a class="main-nav-link" href="/archives">归档</a>
+                <a class="main-nav-link" href="/timeline">时间线</a>
+                <a class="main-nav-link" href="/categories">分类</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+        <main class="main-container">
+            {{{ body }}}
+        </main>
+
+        <footer class="footer">
+    <div class="container">
+        <p>&copy; {{ new Date().getFullYear() }} {{ config.author }}. All rights reserved.</p>
+    </div>
+</footer>
+    </div>
+</body>
+</html>
