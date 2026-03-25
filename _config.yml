@@ -23,6 +23,12 @@ category_dir: categories
 code_dir: code
 i18n_dir: :lang
 skip_render:
+  - essays/**
+  - research/**
+  - works/**
+  - timeline/**
+  - game/**
+  - 游戏化/**
 
 # Writing
 new_post_name: :title.md
